@@ -29,8 +29,9 @@ public class Hangman {
      * the constructor takes in an input string 
      * @param inputStr
      */
-    public Hangman()
+    public Hangman(String inputStr)
     {
+        this.gameStr = inputStr;
         this.gameSet = this.gameSetOps();
         this.gameTries = 0;
         this.rndNum = theRnd.nextInt();

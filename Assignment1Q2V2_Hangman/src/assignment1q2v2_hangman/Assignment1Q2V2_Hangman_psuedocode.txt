@@ -157,7 +157,6 @@ Begin
 
 		do  
 			new Hangman("what did the fox say")
-			call setGameStr("what does the fox say")
             print "Let's play a round of hangman"
             print "We are playing hangman."
             theTries = 0;
@@ -172,8 +171,7 @@ Begin
 
 			print "Congratulations, you found the secret word: ", call getGameStr()
 
-            new Hangman()
-            call setGameStr("jazz")
+            new Hangman("jazz")
             print "Let's play another round of hangman"
             print "We are playing hangman."
             theTries = 0;
@@ -188,8 +186,7 @@ Begin
 
 			print "Congratulations, you found the secret word: ", call getGameStr()
             
-            new Hangman()
-            call setGameStr("quick")
+            new Hangman("quick")
             print "Let's play the final round of hangman");
             print "We are playing hangman."
             theTries = 0;

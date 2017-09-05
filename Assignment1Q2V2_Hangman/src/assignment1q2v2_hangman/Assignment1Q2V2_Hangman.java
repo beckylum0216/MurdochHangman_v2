@@ -24,8 +24,7 @@ public class Assignment1Q2V2_Hangman {
         int theTries;
         
         do{
-            Hangman gameOne = new Hangman();
-            gameOne.setGameStr("what does the fox say");
+            Hangman gameOne = new Hangman("what does the fox say");
             System.out.println("Let's play a round of hangman");
             System.out.println("We are playing hangman.");
             theTries = 0;
@@ -41,8 +40,7 @@ public class Assignment1Q2V2_Hangman {
             System.out.println("Congratulations, you found the secret word: "
             + gameOne.getGameStr());
             
-            Hangman gameTwo = new Hangman();
-            gameTwo.setGameStr("jazz");
+            Hangman gameTwo = new Hangman("jazz");
             System.out.println("Let's play another round of hangman");
             System.out.println("We are playing hangman.");
             theTries = 0;
@@ -63,8 +61,7 @@ public class Assignment1Q2V2_Hangman {
             System.out.println("Congratulations, you found the secret word: "
             + gameTwo.getGameStr());
             
-            Hangman gameThree = new Hangman();
-            gameThree.setGameStr("quick");
+            Hangman gameThree = new Hangman("quick");
             System.out.println("Let's play the final round of hangman");
             System.out.println("We are playing hangman.");
             theTries = 0;
