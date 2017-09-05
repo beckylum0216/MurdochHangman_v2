@@ -1,0 +1,213 @@
+/**********************************************************
+Authors: Rebecca Lim 
+Date: 27/08/2017
+Purpose: The hangman game
+***********************************************************/
+
+Begin
+	Class Hangman
+
+		declare private string gameStr
+		declare private string gameAns
+		declare private integer gameTries
+		declare private integer gameWrong
+		declare private string gameSet
+		declare private integer rndNum
+
+		public procedure new()
+			gameSet = call gameSetOps
+			gameTries = 0;
+			rndNUm = new Random()
+		end procedure
+
+		public function integer getGameTries()
+			return gameTries
+		end function
+
+		public functions String getGameStr()
+			return gameStr
+		end function
+
+		public function string getGameAns()
+			return gameAns
+		end function
+
+		public function integer getGameWrong()
+			return gameWrong
+		end function
+
+		public function void StudentInfo()
+			print "Name:			Rebecca Lim"
+			print "Student Number:	33111264"
+			print "Enrolment:		Internal"
+			print "Tutor:			Mark Abernethy"
+			print "Tutorial:		Thursday, 10.30am"
+		end function
+
+		public function void makeGuess()
+			declare string tempAns
+
+				print "Guess a letter:"
+				read tempAns
+				
+				if(tempAns is empty)
+					print "You have entered an empty string. Please enter something"
+				else
+					if(tempAns.length() > 1)
+						print "Sorry bad guess. Need a single letter."
+					else
+						if tempAns is Digit
+							print "Sorry your guess must be an alphabet character froma to z."
+						else
+							if gameStr contains tempTest
+								if gameAns contains tempTest
+									print "You have made this guess already!"
+								else
+									gameAns append tempAns
+									print "Correct. Guesses made", gameTries,"with",gameWrong,"wrong"
+								end if
+							else
+								gameWrong = gameWrong + 1
+								print "Incorrect. Guesses Made", gameTries, "with", call gameWrong,"wrong."
+							end if
+						end if
+					end if
+				end if
+			
+		end function
+
+		public function void getDisguisedWord()
+			boolean found = false
+			int j = 0
+
+			print "The disguised word is <"
+
+			if gameAns.length() == 0 
+				for i to gameStr.length
+					print "?"
+				end for
+			else
+				for i to gameStr.length()
+					while (found == false && j < gameAns.length())
+						if(gameAns.charAt(j) == gamestr.charAt(i))
+							print gameStr.charAt(i)
+							found = true
+						end if
+						j++
+					end while
+
+					if(found == false)
+						print "?"
+					end if
+
+					found = false
+					j=0
+				end for
+			end if
+
+			print "> \n"
+		end function
+
+		public function boolean isFound()
+			boolean theFlag = false
+			integer hashedStr
+			integer hashedAns
+
+			hashedStr = call HashItem(gameSet)
+			if (hashedStr == hashedAns)
+				theFlag == true
+			end if
+
+			return theFlag
+		end function
+
+		public function integer HashItem(string inputStr)
+			int HashTot = 0
+			int hash = 0
+			char str
+			for i to inputStr.length()
+				str = inputStr.charAt(i)
+				hash = 53 * str
+				hashTot += hash
+			end for
+
+			return HashTot
+		end function
+
+		public function string gameSetOps()
+			string setResults = ""
+			for i to gameStr.length()
+				if (!setResults contain  value of gameStr.charAt(i))
+					setResults += value of gameStr.charAt(i)
+				end if
+			end for
+
+			return setResults
+		end function
+
+		public function void setGameAns(string gameAns)
+			gameAns = gameAns
+		end function
+	end class
+
+	class Assignment1Q2_Hangman
+
+		declare public character theFlag  = 'y'
+		declare public integer theTries
+
+		do  
+			new Hangman("what did the fox say")
+			call setGameStr("what does the fox say")
+            print "Let's play a round of hangman"
+            print "We are playing hangman."
+            theTries = 0;
+
+			do
+				call getDisguisedWord
+				theTries = theTries + 1
+				call setGameTries(theTries)
+				call makeGuess
+		
+			while ! call isFound()
+
+			print "Congratulations, you found the secret word: ", call getGameStr()
+
+            new Hangman()
+            call setGameStr("jazz")
+            print "Let's play another round of hangman"
+            print "We are playing hangman."
+            theTries = 0;
+
+			do
+				call getDisguisedWord
+				theTries = theTries + 1
+				call setGameTries(theTries)
+				call makeGuess
+		
+			while ! call isFound()
+
+			print "Congratulations, you found the secret word: ", call getGameStr()
+            
+            new Hangman()
+            call setGameStr("quick")
+            print "Let's play the final round of hangman");
+            print "We are playing hangman."
+            theTries = 0;
+
+			do
+				call getDisguisedWord
+				theTries = theTries + 1
+				call setGameTries(theTries)
+				call makeGuess
+		
+			while ! call isFound()
+
+			print "Congratulations, you found the secret word: ", call getGameStr()
+
+            print "Would you like to continue? (Y/N)"
+            read theFlag
+        while (theFlag == 'y')
+    end class
+end 
+            
+

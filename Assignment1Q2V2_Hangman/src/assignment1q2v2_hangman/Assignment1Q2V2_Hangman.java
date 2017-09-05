@@ -24,7 +24,8 @@ public class Assignment1Q2V2_Hangman {
         int theTries;
         
         do{
-            Hangman gameOne = new Hangman("the fox");
+            Hangman gameOne = new Hangman();
+            gameOne.setGameStr("what does the fox say");
             System.out.println("Let's play a round of hangman");
             System.out.println("We are playing hangman.");
             theTries = 0;
@@ -40,18 +41,19 @@ public class Assignment1Q2V2_Hangman {
             System.out.println("Congratulations, you found the secret word: "
             + gameOne.getGameStr());
             
-            Hangman gameTwo = new Hangman("jazz");
+            Hangman gameTwo = new Hangman();
+            gameTwo.setGameStr("jazz");
             System.out.println("Let's play another round of hangman");
             System.out.println("We are playing hangman.");
             theTries = 0;
             do
             {   
                 gameTwo.getDisguisedWord();
+                theTries = theTries + 1;
+                gameTwo.setGameTries(theTries);
                 
                 gameTwo.makeGuess();
                 
-                theTries = theTries + 1;
-                gameTwo.setGameTries(theTries);
                 
                 System.out.println("Correct. Guesses made "+ 
                                 gameTwo.getGameTries() + " with " 
@@ -61,18 +63,17 @@ public class Assignment1Q2V2_Hangman {
             System.out.println("Congratulations, you found the secret word: "
             + gameTwo.getGameStr());
             
-            Hangman gameThree = new Hangman("quick");
+            Hangman gameThree = new Hangman();
+            gameThree.setGameStr("quick");
             System.out.println("Let's play the final round of hangman");
             System.out.println("We are playing hangman.");
             theTries = 0;
             do
             {   
                 gameThree.getDisguisedWord();
-                
-                gameThree.makeGuess();
-                
                 theTries = theTries + 1;
                 gameThree.setGameTries(theTries);
+                gameThree.makeGuess();
                 
                 System.out.println("Correct. Guesses made "+ 
                                 gameThree.getGameTries() + " with " 

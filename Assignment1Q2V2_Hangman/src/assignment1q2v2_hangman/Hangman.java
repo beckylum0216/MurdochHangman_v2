@@ -29,9 +29,8 @@ public class Hangman {
      * the constructor takes in an input string 
      * @param inputStr
      */
-    public Hangman(String inputStr)
+    public Hangman()
     {
-        this.gameStr = inputStr;
         this.gameSet = this.gameSetOps();
         this.gameTries = 0;
         this.rndNum = theRnd.nextInt();
@@ -175,8 +174,12 @@ public class Hangman {
     public void setGameWrong(int gameWrong) {
         this.gameWrong = gameWrong;
     }
+
+    public void setGameStr(String gameStr) {
+        this.gameStr = gameStr;
+    }
     
-    // Second attempt at masking the method does not 
+    // Second attempt at masking the method does not work for all cases
     /*
     public void getDisguisedWord2()
     {
