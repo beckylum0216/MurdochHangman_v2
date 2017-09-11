@@ -23,8 +23,9 @@ public class Assignment1Q2V2_Hangman {
         Scanner theKB = new Scanner(System.in);
         int theTries;
         
-        do{
-            Hangman gameOne = new Hangman("what does the fox say");
+        while(theFlag == 'y')
+        {
+            Hangman gameOne = new Hangman("argh");
             System.out.println("Let's play a round of hangman");
             System.out.println("We are playing hangman.");
             theTries = 0;
@@ -40,50 +41,52 @@ public class Assignment1Q2V2_Hangman {
             System.out.println("Congratulations, you found the secret word: "
             + gameOne.getGameStr());
             
-            Hangman gameTwo = new Hangman("jazz");
-            System.out.println("Let's play another round of hangman");
-            System.out.println("We are playing hangman.");
-            theTries = 0;
-            do
-            {   
-                gameTwo.getDisguisedWord();
-                theTries = theTries + 1;
-                gameTwo.setGameTries(theTries);
-                
-                gameTwo.makeGuess();
-                
-                
-                System.out.println("Correct. Guesses made "+ 
-                                gameTwo.getGameTries() + " with " 
-                                + gameTwo.getGameWrong()+ " wrong.");
-            }while(!gameTwo.isFound());
-            
-            System.out.println("Congratulations, you found the secret word: "
-            + gameTwo.getGameStr());
-            
-            Hangman gameThree = new Hangman("quick");
-            System.out.println("Let's play the final round of hangman");
-            System.out.println("We are playing hangman.");
-            theTries = 0;
-            do
-            {   
-                gameThree.getDisguisedWord();
-                theTries = theTries + 1;
-                gameThree.setGameTries(theTries);
-                gameThree.makeGuess();
-                
-                System.out.println("Correct. Guesses made "+ 
-                                gameThree.getGameTries() + " with " 
-                                + gameThree.getGameWrong()+ " wrong.");
-            }while(!gameThree.isFound());
-            
-            System.out.println("Congratulations, you found the secret word: "
-            + gameThree.getGameStr());
-            
             System.out.println("Would you like to continue? (Y/N)");
             theFlag = theKB.next().charAt(0);
             
-        }while(theFlag == 'y');
+            if(theFlag ==  'y')
+            {
+                Hangman gameTwo = new Hangman("jazz");
+                System.out.println("Let's play another round of hangman");
+                System.out.println("We are playing hangman.");
+                theTries = 0;
+                do
+                {   
+                    gameTwo.getDisguisedWord();
+                    theTries = theTries + 1;
+                    gameTwo.setGameTries(theTries);
+
+                    gameTwo.makeGuess();
+                }while(!gameTwo.isFound());
+
+                System.out.println("Congratulations, you found the secret word: "
+                + gameTwo.getGameStr());
+
+                System.out.println("Would you like to continue? (Y/N)");
+                theFlag = theKB.next().charAt(0);
+            }
+            
+            if(theFlag == 'y')
+            {
+                Hangman gameThree = new Hangman("quick");
+                System.out.println("Let's play the final round of hangman");
+                System.out.println("We are playing hangman.");
+                theTries = 0;
+                do
+                {   
+                    gameThree.getDisguisedWord();
+                    theTries = theTries + 1;
+                    gameThree.setGameTries(theTries);
+                    gameThree.makeGuess();
+
+                }while(!gameThree.isFound());
+
+                System.out.println("Congratulations, you found the secret word: "
+                + gameThree.getGameStr());
+
+                System.out.println("Would you like to continue? (Y/N)");
+                theFlag = theKB.next().charAt(0);
+            }
+        }
     }
-    
 }
