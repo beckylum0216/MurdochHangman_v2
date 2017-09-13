@@ -9,8 +9,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * This class contains exclusively methods that operate or support the running
- * of the hangman program
+ * @title Bank Loan
+ * @filename Hangman.java
+ * @purpose This class contains exclusively methods that operate or support the 
+ * running of the hangman program
+ * @assumptions the inputs will only take in strings and do error checking on 
+ * the input
+ * @author rebecca
+ * 
  * @author rebecca
  */
 public class Hangman {
@@ -26,8 +32,9 @@ public class Hangman {
     private int rndNum;
     
     /**
-     * the constructor takes in an input string 
-     * @param inputStr
+     * Constructor for the application, takes the input string and sets the 
+     * secret word.
+     * @param inputStr the secret word
      */
     public Hangman(String inputStr)
     {
@@ -64,8 +71,8 @@ public class Hangman {
     }
     
     /**
-     * This method takes in a set word through the contructor, 
-     * checks it against the answer and masks the rest. 
+     * This method that checks the answer against the secret word and masks the 
+     * rest. 
      */
     public void makeGuess()
     {
@@ -120,9 +127,8 @@ public class Hangman {
        
     
     /**
-     * This method takes in a set word through the contructor 
-     * and masks each letter in the word with questions marks for the user
-     * to guess. 
+     * This method masks each letter in the word with questions marks for the 
+     * user to guess. 
      */
     public void getDisguisedWord()
     {
@@ -209,7 +215,7 @@ public class Hangman {
     /**
      * This method compares the hashed answer and hashed secret word to return
      * whether the answer has been found.
-     * @return theFlag 
+     * @return theFlag a boolean of whether the word is found
      */
     public boolean isFound()
     {
@@ -227,7 +233,7 @@ public class Hangman {
     }
     
     /**
-     * 
+     * This method hashes the item with a pseudorandom number  
      * @param inputStr
      * @return
      */
